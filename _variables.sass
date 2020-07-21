@@ -1,0 +1,62 @@
+$container--color: #F7F8FC
+$logo--color: black
+$text--color: #707683
+$blue--color: #004BFF
+$light_blue--color: lightblue
+$orange--color: darkorange
+$dash--color: white
+$valid--color: #2ED47A
+$invalid--color: #DD4C3A
+@mixin ratings($validation, $points)
+  &::after
+    position: absolute
+    top: 4px
+    right: 60px
+    content: ''
+    width: 0
+    height: 0
+    border-style: solid
+    @if $validation == valid
+      border-color: transparent transparent $valid--color transparent
+      border-width: 0 3px 6px 3px
+      color: $valid--color
+    @else if $validation == invalid
+      border-width: 6px 3px 0 3px
+      border-color: $invalid--color transparent transparent transparent
+  &::before
+    position: absolute
+    right: 40px
+    content: '#{$points}'
+    height: 15px
+    color: $valid--color
+    @if $validation == valid
+      color: $valid--color
+    @else if $validation == invalid
+      color: $invalid--color
+
+@mixin ranks($dot-color)
+  &::before
+    position: absolute
+    left: -12px
+    top: 3px
+    content: ''
+    height: 4px
+    width: 4px
+    border: 2px solid $dot-color
+    border-radius: 50%
+p
+  color: $text--color
+=getFont($style)
+  @font-face
+    font-family: Poppins
+    src: url("../fonts/solomon_sans_#{$style}.woff2")
+    @if $style == normal
+      font-style: normal
+    @else if $style == bold
+      font-weight: bold
+    @else if $style == italic
+      font-style: italic
+
++getFont(italic)
++getFont(bold)
++getFont(normal)

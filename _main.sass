@@ -1,0 +1,187 @@
+
+.wrapper
+  display: flex
+  flex-wrap: wrap
+  width: 80%
+  margin: 0 auto
+  background-color: $dash--color
+  padding: 20px 40px
+  border: 1px solid transparent
+  border-radius: 5px
+
+
+%grids
+  //grid-row: 2 / 8
+  padding-left: 20px
+  box-sizing: border-box
+  ul.points
+    li
+      position: relative
+      color: $blue--color
+      &:first-child
+        +ratings(invalid, 12)
+      &:nth-child(2)
+        +ratings(valid, 15)
+      &:nth-child(3)
+        +ratings(invalid, 13)
+      &:nth-child(4)
+        +ratings(invalid, 14)
+$statistics: score, rankings, changes, traffic
+@each $item in $statistics
+  .#{$item}
+    @extend %grids
+    @if $item == score
+      width: 25%
+      border-right: 1px solid $text--color
+
+      ul
+        li.explain
+          &:first-child
+            color: $invalid--color
+          &:nth-child(2)
+            color: $orange--color
+          &:last-child
+            color: $light_blue--color
+    @else if $item == rankings
+      width: 25%
+      border-right: 1px solid $text--color
+      ul
+        li.rank
+          position: relative
+          margin-left: 10px
+          +ranks(#{$blue--color})
+          &:nth-child(3)
+            +ranks(#{$light_blue--color})
+          &:nth-child(4)
+            +ranks(#{$orange--color})
+    @else if $item == changes
+      width: 25%
+      border-right: 1px solid $text--color
+
+    @else
+      width: 25%
+      ul
+        li.rank
+          position: relative
+          margin-left: 10px
+          +ranks(#{$blue--color})
+          &:nth-child(3)
+            +ranks(#{$light_blue--color})
+          &:nth-child(4)
+            +ranks(#{$orange--color})
+      ul.points
+        li
+          position: relative
+          color: $blue--color
+          &:first-child
+            +ratings(valid, 2%)
+          &:nth-child(2)
+            +ratings(invalid, 3%)
+.header--mini
+  @extend .header
+  width: 100%
+  grid-column: 1 / 7
+  grid-row: 1 / 2
+  padding-bottom: 20px
+  border-bottom: 1px solid $text--color
+
+.actions
+  width: 25px
+  height: 25px
+  border: none
+  background:
+    repeat: no-repeat
+    color: transparent
+    size: cover
+    position-x: center
+  margin-right: 25px
+  &:first-child
+    background-image: url("images/share.svg")
+  &:nth-child(2)
+    background-image: url("images/settings.svg")
+  &:last-child
+    background-image: url("images/delete.svg")
+    height: 30px
+.logo
+  display: flex
+  span
+    margin-right: 10px
+    color: $dash--color
+    background-color: black
+    border: 1px solid black
+    border-radius: 50%
+    font-size: 20px
+    padding: 5px 10px
+.item
+  display: flex
+  flex-wrap: wrap
+
+  ul
+    width: 45%
+    padding-left: 0
+    margin-top: 0
+    li
+      margin-bottom: 10px
+
+    &.changes--list
+      width: 100%
+      li
+        span
+          display: inline
+          color: $blue--color
+        position: relative
+        margin-left: 20px
+        &::before
+          position: absolute
+          left: -15px
+          top: 3px
+          content: ''
+          height: 3px
+          width: 3px
+          background: $orange--color
+          border: 1px solid $orange--color
+          border-radius: 50%
+        &:nth-child(4)
+          &::before
+            background: green
+            border-color: green
+
+  p
+    display: block
+    width: 100%
+    text-align: left
+    margin-bottom: 5px
+    &:nth-child(2)
+      font-size: 10px
+      margin:
+        top: 20px
+        bottom: 20px
+  span
+    display: block
+    width: 100%
+
+
+
+
+.green
+  font-size: 40px
+  color: $valid--color
+  position: relative
+  &::after
+    position: absolute
+    top: 20px
+    right: 80px
+    content: '4%'
+    color: $invalid--color
+    font-size: 15px
+  &::before
+    position: absolute
+    top: 23px
+    right: 105px
+    content: ''
+    width: 0
+    height: 0
+    border-style: solid
+    border-width: 10px 5px 0 5px
+    border-color: $invalid--color transparent transparent transparent
+

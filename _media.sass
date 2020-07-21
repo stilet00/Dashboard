@@ -1,0 +1,35 @@
+@media (max-width: 1024px) //iphoneX horizontal and iPad horizontal
+  .score, .rankings, .changes, .traffic
+    width: 49%
+    margin-top: 20px
+    border-bottom: 1px solid $text--color
+    border-right: 1px solid $text--color
+  .score, .changes
+    border-left: 1px solid $text--color
+@media (max-width: 375px) //iphoneX vertical
+  .container
+    padding-top: 20px
+  .header
+    width: 100%
+    flex-wrap: wrap
+    justify-content: center
+    nav
+      width: 100%
+      text-align: center
+      margin-top: 10px
+      &.buttons
+        display: flex
+        justify-content: space-evenly
+      label
+        margin-right: 0
+      select
+        margin-right: 0
+  .score, .rankings, .changes, .traffic
+    width: 100%
+    margin-top: 20px
+    border-left: 1px solid $text--color
+    border-bottom: 1px solid $text--color
+    border-right: 1px solid $text--color
+
+
+
