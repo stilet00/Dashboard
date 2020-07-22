@@ -1,11 +1,14 @@
-var gulp = require('gulp');
-var postcss = require('gulp-postcss');
+var gulp = require('gulp'),
+    postcss = require('gulp-postcss'),
+    rigger = require('gulp-rigger');
+
 gulp.task('css', function () {
     return gulp.src('source/style.css')
         .pipe(gulp.dest('./build'));
 });
 gulp.task('html', function () {
     return gulp.src('source/index.html')
+        .pipe(rigger())
         .pipe(gulp.dest('./build'));
 });
 gulp.task('image', function () {

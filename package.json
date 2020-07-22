@@ -21,5 +21,7 @@
     "gulp": "^4.0.2",
     "gulp-postcss": "^8.0.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "gulp-rigger": "^0.5.8"
+  }
 }
