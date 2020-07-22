@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/stilet00/homework14#readme",
   "devDependencies": {
+    "autoprefixer": "^9.8.5",
     "gulp": "^4.0.2",
     "gulp-postcss": "^8.0.0"
-  }
+  },
+  "dependencies": {}
 }
