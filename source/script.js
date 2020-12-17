@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    let deleteButton;
-    deleteButton = document.body;
+    const deleteButton = document.querySelector('#id');
     function buttonPress(event) {
     console.log(event.target);
 });
