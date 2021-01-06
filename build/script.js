@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
-    let deleteButton;
-    deleteButton = document.body;
+    const deleteButton = document.querySelector('#navigation');
+    const urlLogo = document.getElementById('id');
     function buttonPress(event) {
-    console.log(event.target);
+        urlLogo.innerHTML = 'NEW URL';
 });
-deleteButton.addEventListener('click', buttonPress);
+    deleteButton.addEventListener('click', buttonPress);
 }
